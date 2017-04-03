@@ -1,0 +1,2 @@
+# TagGameNew
+version with inheritance
