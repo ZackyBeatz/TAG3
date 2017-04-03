@@ -236,9 +236,9 @@ public class GameController {
 
     public static void printMethod(Player n1) {
         try {
-
+            String file = "C:\\Users\\Ejer\\Desktop\\Datamatiker\\TagGame2\\TagGame2\\TagGameNew\\src\\tag2ver4\\HighScores.txt";
             String text = "High scores:" + n1.name + "  " + n1.getPlayerGold();
-            try (BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Users\\Ejer\\Desktop\\Datamatiker\\TagGame2\\TagGame2\\TagGameNew\\src\\tag2ver4\\HighScores.txt"))) {
+            try (BufferedWriter out = new BufferedWriter(new FileWriter(file, true))) {
                 out.write(text);
             }
         } catch (IOException out) {
