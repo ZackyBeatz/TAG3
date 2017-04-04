@@ -7,9 +7,11 @@ package tag2ver4;
 
 /**
  *
- * @author Ejer
+ * @author BenedikteEva
  */
 public class CombatController {
+    
+    
     
     public void Combat(){
         
