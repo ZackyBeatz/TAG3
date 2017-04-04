@@ -13,7 +13,7 @@ import tag2ver4.ItemsFactories.HealingPotions;
  */
 public class EnemyFactory {
 
-    public Enemy[] createenemy() {
+    public Enemy[] CreateEnemy() {
 
         
         Enemy[] enemy = new Enemy[5];

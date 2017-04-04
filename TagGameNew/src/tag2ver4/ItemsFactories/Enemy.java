@@ -33,6 +33,11 @@ public class Enemy extends ItemsSuper {
         this.enemyHealth = enemyHealth;
     }
 
+    @Override
+    public String toString() {
+        return "Enemy{" + "name=" + name + ", description=" + description + ", enemyDamage=" + enemyDamage + ", enemyHealth=" + enemyHealth + '}';
+    }
+
     public int getEnemyHealth() {
       
         return enemyHealth;

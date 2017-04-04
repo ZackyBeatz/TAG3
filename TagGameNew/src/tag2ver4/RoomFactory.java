@@ -4,6 +4,8 @@ package tag2ver4;
 
 import tag2ver4.ItemsFactories.Armor;
 import tag2ver4.ItemsFactories.ArmorFactory;
+import tag2ver4.ItemsFactories.Enemy;
+import tag2ver4.ItemsFactories.EnemyFactory;
 import tag2ver4.ItemsFactories.HealingPotions;
 import tag2ver4.ItemsFactories.HealingPotionsFactory;
 import tag2ver4.ItemsFactories.WeaponsFactory;
@@ -23,6 +25,7 @@ public class RoomFactory {
         HealingPotions[] newPotions = new HealingPotionsFactory().createPotions();
         Weapons[] newWeapon = new WeaponsFactory().defineWeapons();
         Armor[] newArmor = new ArmorFactory().defineArmor();
+        Enemy[] newEnemy = new EnemyFactory().CreateEnemy();
    
 
         // initalise position for each room
@@ -130,8 +133,7 @@ public class RoomFactory {
         // DOOR 1 Items
         roomMatrix[0][0].setRoomItem1(newPotions[0]);
         roomMatrix[0][0].setRoomItem2(newWeapon[0]);
-      
-        
+     
         // DOOR 2 items
         roomMatrix[0][1].setRoomItem1(newPotions[0]);
         roomMatrix[0][1].setRoomItem3(newArmor[1]);
@@ -157,6 +159,7 @@ public class RoomFactory {
         // DOOR 8 items
       
         roomMatrix[2][1].setRoomItem2(newWeapon[0]);
+         roomMatrix[2][1].setEnemy(newEnemy[1]);
         
         // DOOR 9 items 
         roomMatrix[2][2].setRoomItem1(newPotions[2]);

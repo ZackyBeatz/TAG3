@@ -31,6 +31,8 @@ public class BackpackController {
                 
         
         
+       
+ 
         Weapons item2 = nextRoom.getRoomItem2();
         Armor item3 = nextRoom.getRoomItem3();
 
@@ -103,14 +105,18 @@ public class BackpackController {
         System.out.println("Choose an item by typing it's name");//}
 
         String itemchoice = itemchoose.nextLine();
-        if (!(itemchoice.equals(n1.getLocation().getRoomItem1().getName()) || itemchoice.equals(n1.getLocation().getRoomItem2().getName()) || itemchoice.equals(n1.getLocation().getRoomItem3().getName()))) {
-
+       
+ HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
+        
+        System.out.println(selectahealingpotion[2].getAccDescription());
+        
+            
             System.out.println("You do not have such an item try again");
             itemchoice = itemchoose.nextLine();
 
         }
 
-    }
+   
 
     public void printBackPack(Player n1) {
         for (int i = 0; i < n1.getBackPack().size(); i++) {

@@ -9,7 +9,7 @@ package tag2ver4;
 import tag2ver4.ItemsFactories.Armor;
 import tag2ver4.ItemsFactories.HealingPotions;
 import tag2ver4.ItemsFactories.Weapons;
-
+import tag2ver4.ItemsFactories.Enemy;
 /**
  *
  * @author Zack
@@ -26,10 +26,15 @@ public class Room {
     private HealingPotions roomItem1;
     private Weapons roomItem2;
     private Armor roomItem3;
+    private Enemy enemy;
 
-
-   
-
+    public Enemy getEnemy() {
+        return enemy;
+    }
+    
+    public void setEnemy(Enemy enemy) {
+        this.enemy = enemy;
+    }
 
     public Armor getRoomItem3() {
         return roomItem3;
