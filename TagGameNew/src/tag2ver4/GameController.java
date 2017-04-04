@@ -94,6 +94,9 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("n")) {
                         if (n1.getLocation().getNorth() != null) {
                             direction(n1, n1.getLocation().getNorth());
+                               if (n1.getLocation().getEnemy() != null) {
+//                                cc.Combat();
+                            }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
                             System.out.println("No room north for room " + n1.getRoomNr() + "\n"
@@ -119,6 +122,9 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("e")) {
                         if (n1.getLocation().getEast() != null) {
                             direction(n1, n1.getLocation().getEast());
+                               if (n1.getLocation().getEnemy() != null) {
+//                                cc.Combat();
+                            }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
                             System.out.println("No room east for room " + n1.getRoomNr() + "\n"
@@ -129,6 +135,9 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("w")) {
                         if (n1.getLocation().getWest() != null) {
                             direction(n1, n1.getLocation().getWest());
+                               if (n1.getLocation().getEnemy() != null) {
+//                                cc.Combat();
+                            }
                         } // // IF NO ROOM TO THAT DIRECTION
                         else {
                             System.out.println("No room west for room " + n1.getRoomNr() + "\n"
