@@ -39,9 +39,9 @@ public class ItemsSuper {
         this.damage = damage;
     }
     
-    public void use(Enemy e1){
-        e1.setHealth(e1.getHealth()-damage);
-    }
+//    public void use(Enemy e1){
+//        e1.setHealth(e1.getHealth()-damage);
+//    }
     
     public void heal(Player n1){
         n1.setHealth(n1.getHealth()+heal);
