@@ -20,6 +20,7 @@ public class GameController {
     String name;
     String helpInput;
     Player n1 = new Player(name, 100, roomMatrix[0][0], 1, 0);
+    CombatController cc = new CombatController();
 
     public void runGame(Player n1) {
 
@@ -75,11 +76,10 @@ public class GameController {
                     }
                     b.chooseDirection();
                     // you are inside the game and should be able to move around in the dungeon
-                    
+
                     String brugerInput = userInput.nextLine();
-                    
-                    
-                      if (brugerInput.equalsIgnoreCase("help")) {
+
+                    if (brugerInput.equalsIgnoreCase("help")) {
                         Help(n1);
                     }
 
@@ -89,7 +89,7 @@ public class GameController {
                         bpc.addToBackpack(n1, n1.getLocation());
 
                     }
-                    
+
                     // ROOM NORTH
                     if (brugerInput.equalsIgnoreCase("n")) {
                         if (n1.getLocation().getNorth() != null) {
@@ -105,6 +105,9 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("s")) {
                         if (n1.getLocation().getSouth() != null) {
                             direction(n1, n1.getLocation().getSouth());
+                            if (n1.getLocation().getEnemy() != null) {
+//                                cc.Combat();
+                            }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
                             System.out.println("No room south for room " + n1.getRoomNr() + "\n"
@@ -132,7 +135,7 @@ public class GameController {
                                     + "--------------------------------------------------------------------");
                         }
                     }
-                    
+
                 }
             }
         }
@@ -160,47 +163,44 @@ public class GameController {
 
     }
 
-
     public void Help(Player n1) {
-        
-        
+
         b.helpMenu(n1);
         invalidInput = false;
         Scanner scanHelp = new Scanner(System.in);
         helpInput = scanHelp.nextLine();
         helpInput.toLowerCase();
-        
-        switch(helpInput)
-        {
+
+        switch (helpInput) {
             case "exit":
-            invalidInput = true;
-            System.out.println("You are still in room " + n1.getRoomNr());
-            break;
-            
+                invalidInput = true;
+                System.out.println("You are still in room " + n1.getRoomNr());
+                break;
+
             case "gold":
-            System.out.println("You have collected:  " + n1.getPlayerGold() + " gold pieces");
-            Help(n1);
-            break;
-            
+                System.out.println("You have collected:  " + n1.getPlayerGold() + " gold pieces");
+                Help(n1);
+                break;
+
             case "health":
-            System.out.println("Your health is at:  " + n1.getHealth() + " %");
-            Help(n1);
-            break;
-            
+                System.out.println("Your health is at:  " + n1.getHealth() + " %");
+                Help(n1);
+                break;
+
             case "quit":
-            gameOver(n1);
-            System.exit(0);
-            break;
-            
+                gameOver(n1);
+                System.exit(0);
+                break;
+
             case "sack":
-            bpc.printBackPack(n1);
-            bpc.rucksackOptions(n1);
-            break;
-            
+                bpc.printBackPack(n1);
+                bpc.rucksackOptions(n1);
+                break;
+
             case "search":
-             bpc.Search(n1, n1.getLocation());
-             Help(n1);
-            break;
+                bpc.Search(n1, n1.getLocation());
+                Help(n1);
+                break;
         }
     }
 
