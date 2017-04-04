@@ -15,7 +15,7 @@ public class HealingPotionsFactory {
     // HERINDE KAN VI REDIGERE OG LAVE FLERE VÅBEN SAMT HEAL POTIONS...
     public HealingPotions[] createPotions() {
         
-       HealingPotions[] potions = new HealingPotions[3];
+       HealingPotions[] potions = new HealingPotions[5];
         
        potions[0] = new HealingPotions("Golden Shot.", "A magic potion with a buzz", 8);
          potions[1] = new HealingPotions("Sparkling Fuzz.", "Pearly and white, good for your teeth", 5);
