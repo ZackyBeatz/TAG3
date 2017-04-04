@@ -4,6 +4,7 @@ package tag2ver4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -20,7 +21,11 @@ public class Player{
  
     private int roomNr;
     private int playerGold;
+    
     private ArrayList <ItemsSuper> backPack = new ArrayList<>();
+    Random attack = new Random();
+    int attack1;
+    
 
    
         public Player(String name, int health, Room location, int roomNr, int playerGold) {
@@ -30,6 +35,11 @@ public class Player{
         this.roomNr = roomNr;
         this.playerGold = playerGold;
     }
+        
+    public int attack(){
+        attack1 = attack.nextInt(6) + 1;
+        return attack1;
+    }    
 
   
     public int getPlayerGold() {
