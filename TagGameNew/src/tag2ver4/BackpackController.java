@@ -9,6 +9,7 @@ import java.util.Scanner;
 import tag2ver4.ItemsFactories.Armor;
 import tag2ver4.ItemsFactories.HealingPotions;
 import tag2ver4.ItemsFactories.Weapons;
+import tag2ver4.ItemsFactories.HealingPotionsFactory;
 
 /**
  *
@@ -22,6 +23,14 @@ public class BackpackController {
     public void Search(Player n1, Room nextRoom) {
 
         HealingPotions item1 = nextRoom.getRoomItem1();
+        
+        HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
+        
+        System.out.println(selectahealingpotion[2].getAccDescription());
+        
+                
+        
+        
         Weapons item2 = nextRoom.getRoomItem2();
         Armor item3 = nextRoom.getRoomItem3();
 
