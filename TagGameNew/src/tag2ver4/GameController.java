@@ -11,12 +11,13 @@ import tag2ver4.ItemsFactories.Enemy;
  * @author Zack
  */
 public class GameController {
+
     boolean gamerun;
     private boolean invalidInput = true;
     String name;
     String helpInput;
     String description;
-    
+
     Scanner userInput = new Scanner(System.in);
     Room[][] roomMatrix = new RoomFactory().createRooms();
     Room[][] roomMatrix2 = new RoomFactory2().createRooms();
@@ -66,7 +67,7 @@ public class GameController {
                     System.out.println("You collected " + n1.getPlayerGold() + " gold coins" + "\n"
                             + "--------------------------------------------------------------------");
                     printMethod(n1);
-                     loadLevel2(n1);
+                    loadLevel2(n1);
                 }
                 invalidInput = true;
 
@@ -98,8 +99,11 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("n")) {
                         if (n1.getLocation().getNorth() != null) {
                             direction(n1, n1.getLocation().getNorth());
-                               if (n1.getLocation().getEnemy() != null) {
-                               cc.Combat(n1, e1);
+                            if (n1.getLocation().getEnemy() != null) {
+                                cc.Combat(n1, e1);
+                                if (cc.actionchoice.equalsIgnoreCase("help")) {
+                                    Help(n1);
+                                }
                             }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
@@ -126,8 +130,8 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("e")) {
                         if (n1.getLocation().getEast() != null) {
                             direction(n1, n1.getLocation().getEast());
-                               if (n1.getLocation().getEnemy() != null) {
-                              cc.Combat(n1, e1);
+                            if (n1.getLocation().getEnemy() != null) {
+                                cc.Combat(n1, e1);
                             }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
@@ -139,8 +143,8 @@ public class GameController {
                     if (brugerInput.equalsIgnoreCase("w")) {
                         if (n1.getLocation().getWest() != null) {
                             direction(n1, n1.getLocation().getWest());
-                               if (n1.getLocation().getEnemy() != null) {
-                             cc.Combat(n1, e1);
+                            if (n1.getLocation().getEnemy() != null) {
+                                cc.Combat(n1, e1);
                             }
                         } // // IF NO ROOM TO THAT DIRECTION
                         else {
@@ -240,20 +244,20 @@ public class GameController {
         }
 
     }
-    
+
     // her vill det være rart med en level loader som loadede en roommatricx med samme nummer som level
-     public void loadLevel2(Player n1) {
+    public void loadLevel2(Player n1) {
 
         Scanner exitopt = new Scanner(System.in);
-        System.out.println("Do you wanna play again? Type 'Yes' for yes og 'No' for no");
-        String startover = exitopt.nextLine();
+        System.out.println("Do you wanna go to next level? Type 'Yes' for yes og 'No' for no");
+        String nextlevel = exitopt.nextLine();
 
-        if (startover.equalsIgnoreCase("no")) {
+        if (nextlevel.equalsIgnoreCase("no")) {
             System.out.println("Thank you for playing  " + n1.getName() + " !");
             System.exit(0);
         }
 
-        if (startover.equalsIgnoreCase("yes")) {
+        if (nextlevel.equalsIgnoreCase("yes")) {
             n1.setHealth(100);
             n1.setLocation(roomMatrix2[0][0]);
             n1.setRoomNr(4);

@@ -34,7 +34,7 @@ public class Player{
     }
         
     public int attack(){
-        attack1 = attack.nextInt(6) + 1;
+        attack1 = attack.nextInt(10) + 1;
         return attack1;
     }    
 

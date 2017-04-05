@@ -153,7 +153,7 @@ public class RoomFactory {
 
         // DOOR 8 items
         roomMatrix[2][1].setRoomItem2(newWeapon[0]);
-        roomMatrix[2][1].setEnemy(newEnemy[2]);
+        roomMatrix[2][1].setEnemy(newEnemy[1]);
 
         // DOOR 9 items 
         roomMatrix[2][2].setRoomItem1(newPotions[2]);

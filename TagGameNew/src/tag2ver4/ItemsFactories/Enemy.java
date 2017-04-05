@@ -5,6 +5,7 @@
  */
 package tag2ver4.ItemsFactories;
 
+import java.util.Random;
 import tag2ver4.ItemsSuper;
 import tag2ver4.Player;
 import tag2ver4.Room;
@@ -22,6 +23,7 @@ public class Enemy extends ItemsSuper {
     private String description;
     private int enemyDamage;
     private int enemyHealth;
+    Random attack = new Random();
     
     
     
@@ -32,7 +34,7 @@ public class Enemy extends ItemsSuper {
         this.enemyDamage = enemyDamage;
         this.enemyHealth = enemyHealth;
     }
-
+  
  
 
     @Override
@@ -49,6 +51,7 @@ public class Enemy extends ItemsSuper {
     }
    
     public int getEnemyDamage() {
+        enemyDamage = attack.nextInt(5) + enemyDamage;
         return enemyDamage;
     }
     
