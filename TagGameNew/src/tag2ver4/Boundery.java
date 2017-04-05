@@ -10,6 +10,7 @@ public class Boundery {
   
     String itemchoice;
     String helpInput;
+   
 //    String named;
 
     public void intro(Player n1) {
@@ -71,6 +72,8 @@ public class Boundery {
         System.out.println("Type 'sack' to see items in your backpack");
 
     }
+    
+    
 
  
 }

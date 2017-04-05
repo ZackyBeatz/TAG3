@@ -26,7 +26,7 @@ public class BackpackController {
         
         HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
         
-        System.out.println(selectahealingpotion[2].getAccDescription());
+        System.out.println(selectahealingpotion[2].getDescription());
         
                 
         
@@ -108,7 +108,7 @@ public class BackpackController {
        
  HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
         
-        System.out.println(selectahealingpotion[2].getAccDescription());
+        System.out.println(selectahealingpotion[2].getDescription());
         
             
             System.out.println("You do not have such an item try again");

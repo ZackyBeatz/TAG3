@@ -16,31 +16,31 @@ public class HealingPotions extends ItemsSuper{
 
    
     
-    private String accdescription;
-    private String accName;
+    private String description;
+    private String name;
     private int heal;
 
-    public HealingPotions(String accdescription, String accName, int heal) {
-        this.accdescription = accdescription;
-        this.accName = accName;
+    public HealingPotions(String description, String name, int heal) {
+        this.description = description;
+        this.name = name;
         this.heal = heal;
     }
     
    
-    public String getAccName() {
-        return accName;
+    public String getName() {
+        return name;
     }
 
-    public void setAccName(String accName) {
-        this.accName = accName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAccDescription() {
-        return accdescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAccDescription(String accdescription) {
-        this.accdescription = accdescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getHeal() {
@@ -60,7 +60,7 @@ public class HealingPotions extends ItemsSuper{
     
      @Override
     public String toString() {
-        return "  " + accdescription + "  " + accName + " Increases health:  " + heal ;
+        return "  " + description + "  " + name + " Increases health:  " + heal ;
     }
     
    

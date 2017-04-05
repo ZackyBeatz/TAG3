@@ -1,6 +1,4 @@
-
 package tag2ver4;
-
 
 import tag2ver4.ItemsFactories.Armor;
 import tag2ver4.ItemsFactories.ArmorFactory;
@@ -26,7 +24,6 @@ public class RoomFactory {
         Weapons[] newWeapon = new WeaponsFactory().defineWeapons();
         Armor[] newArmor = new ArmorFactory().defineArmor();
         Enemy[] newEnemy = new EnemyFactory().CreateEnemy();
-   
 
         // initalise position for each room
         roomMatrix[0][0] = new Room(1, "\n"
@@ -89,7 +86,7 @@ public class RoomFactory {
                 + "You are almost blinded by the light of the outside world.\n"
                 + "--------------------------------------------------------------------", 5);
 
-       // EXITS FOR EACH ROOM
+        // EXITS FOR EACH ROOM
         // DOOR 1
         roomMatrix[0][0].setNorth(roomMatrix[2][1]);
         roomMatrix[0][0].setEast(roomMatrix[0][1]);
@@ -126,44 +123,40 @@ public class RoomFactory {
         // door 9
         roomMatrix[2][2].setEast(roomMatrix[2][0]);
         // door west == victory ???;
-        
 
         // SET ITEMS ON EACH ROOM 
         // PROBLEM ?? SO FAR I CAN ONLY HAVE ONE ITEM PER ROOM
         // DOOR 1 Items
         roomMatrix[0][0].setRoomItem1(newPotions[0]);
         roomMatrix[0][0].setRoomItem2(newWeapon[0]);
-     
+        roomMatrix[0][0].setEnemy(newEnemy[0]);
         // DOOR 2 items
         roomMatrix[0][1].setRoomItem1(newPotions[0]);
         roomMatrix[0][1].setRoomItem3(newArmor[1]);
-        
+
         // DOOR 3 items
         roomMatrix[0][2].setRoomItem3(newArmor[0]);
-        
+
         // DOOR 4 items
         roomMatrix[1][0].setRoomItem1(newPotions[1]);
         roomMatrix[1][0].setRoomItem2(newWeapon[1]);
-        
+
         // DOOR 5 items
         roomMatrix[1][1].setRoomItem2(newWeapon[1]);
         roomMatrix[1][1].setRoomItem1(newPotions[2]);
-        
+
         // DOOR 6 items
-        
         roomMatrix[1][2].setRoomItem1(newPotions[1]);
-        
+        roomMatrix [1][2].setEnemy(newEnemy[4]);
         // DOOR 7 items
         roomMatrix[2][0].setRoomItem3(newArmor[1]);
-        
+
         // DOOR 8 items
-      
         roomMatrix[2][1].setRoomItem2(newWeapon[0]);
-         roomMatrix[2][1].setEnemy(newEnemy[1]);
-        
+        roomMatrix[2][1].setEnemy(newEnemy[2]);
+
         // DOOR 9 items 
         roomMatrix[2][2].setRoomItem1(newPotions[2]);
-        
 
         return roomMatrix;
     }

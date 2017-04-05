@@ -20,9 +20,9 @@ public class EnemyFactory {
 
         enemy[0] = new Enemy("Skeletom", "A thin and white son of a bitch, who can't evven figure out hes dead", 5, 10);
         enemy[1] = new Enemy("Snorkl Snake", "A really weird looking snake with a snorkl like protusion on its head", 3, 10);
-        enemy[2] = new Enemy("Wicked Witch", "A clasic old witch with a dangourous spell attack", 4, 20);
+        enemy[2] = new Enemy("Wicked Witch", "A classic old witch with a lot of dark magic ", 4, 20);
         enemy[3] = new Enemy("Politician", "Blue suit and an ability to twitch your reality", 6, 50);
-        enemy[4] = new Enemy("Dragon", "We all know them, we all fear their warm breath", 5, 100);
+        enemy[4] = new Enemy("Dragon", "We all know them, we all fear them, we all run screaming", 5, 100);
 
         return enemy;
     }

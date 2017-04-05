@@ -4,22 +4,25 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import tag2ver4.ItemsFactories.Enemy;
 
 /**
  *
  * @author Zack
  */
 public class GameController {
-
-    Scanner userInput = new Scanner(System.in);
-    Room[][] roomMatrix = new RoomFactory().createRooms();
-    Boundery b = new Boundery();
-    BackpackController bpc = new BackpackController();
     boolean gamerun;
     private boolean invalidInput = true;
     String name;
     String helpInput;
+    String description;
+    
+    Scanner userInput = new Scanner(System.in);
+    Room[][] roomMatrix = new RoomFactory().createRooms();
+    Boundery b = new Boundery();
+    BackpackController bpc = new BackpackController();
     Player n1 = new Player(name, 100, roomMatrix[0][0], 1, 0);
+    Enemy e1 = new Enemy(name, description, 0, 0);
     CombatController cc = new CombatController();
 
     public void runGame(Player n1) {
@@ -95,7 +98,7 @@ public class GameController {
                         if (n1.getLocation().getNorth() != null) {
                             direction(n1, n1.getLocation().getNorth());
                                if (n1.getLocation().getEnemy() != null) {
-//                                cc.Combat();
+                               cc.Combat(n1, e1);
                             }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
@@ -109,7 +112,7 @@ public class GameController {
                         if (n1.getLocation().getSouth() != null) {
                             direction(n1, n1.getLocation().getSouth());
                             if (n1.getLocation().getEnemy() != null) {
-//                                cc.Combat();
+                                cc.Combat(n1, e1);
                             }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
@@ -123,7 +126,7 @@ public class GameController {
                         if (n1.getLocation().getEast() != null) {
                             direction(n1, n1.getLocation().getEast());
                                if (n1.getLocation().getEnemy() != null) {
-//                                cc.Combat();
+                              cc.Combat(n1, e1);
                             }
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
@@ -136,7 +139,7 @@ public class GameController {
                         if (n1.getLocation().getWest() != null) {
                             direction(n1, n1.getLocation().getWest());
                                if (n1.getLocation().getEnemy() != null) {
-//                                cc.Combat();
+                             cc.Combat(n1, e1);
                             }
                         } // // IF NO ROOM TO THAT DIRECTION
                         else {

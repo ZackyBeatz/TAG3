@@ -33,9 +33,11 @@ public class Enemy extends ItemsSuper {
         this.enemyHealth = enemyHealth;
     }
 
+ 
+
     @Override
     public String toString() {
-        return "Enemy{" + "name=" + name + ", description=" + description + ", enemyDamage=" + enemyDamage + ", enemyHealth=" + enemyHealth + '}';
+        return  "A  "+name +   "  attacks you!\n   It is " + description + "\n with an attack that damages your health: " + enemyDamage + "\nYou enemy's health:  " + enemyHealth;
     }
 
     public int getEnemyHealth() {
@@ -58,9 +60,7 @@ public class Enemy extends ItemsSuper {
         this.enemyDamage = enemyDamage;
     }
 
-    public void enemyHit(Player n1){
-        n1.setHealth(n1.getHealth()-enemyDamage);
-    }
+   
     public String getName() {
         return name;
     }
