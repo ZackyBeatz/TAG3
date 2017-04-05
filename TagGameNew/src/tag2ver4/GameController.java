@@ -66,7 +66,7 @@ public class GameController {
                     System.out.println("You collected " + n1.getPlayerGold() + " gold coins" + "\n"
                             + "--------------------------------------------------------------------");
                     printMethod(n1);
-                     restartGameWin1(n1);
+                     loadLevel2(n1);
                 }
                 invalidInput = true;
 
@@ -75,7 +75,7 @@ public class GameController {
                     if (n1.getHealth() < 1) {
 
                         System.out.println("You Died. Game Over");
-                        restartGameLose(n1);
+                        restartGame(n1);
 
                     }
                     b.chooseDirection();
@@ -93,7 +93,7 @@ public class GameController {
                         bpc.addToBackpack(n1, n1.getLocation());
 
                     }
-
+// det ville være fedt hvis denne kode kunne forkortes...
                     // ROOM NORTH
                     if (brugerInput.equalsIgnoreCase("n")) {
                         if (n1.getLocation().getNorth() != null) {
@@ -217,7 +217,7 @@ public class GameController {
         }
     }
 
-    public void restartGameLose(Player n1) {
+    public void restartGame(Player n1) {
 
         Scanner exitopt = new Scanner(System.in);
         System.out.println("Do you wanna play again? Type 'Yes' for yes og 'No' for no");
@@ -236,13 +236,13 @@ public class GameController {
             gamerun = true;
 
         } else {
-            restartGameLose(n1);
+            restartGame(n1);
         }
 
     }
     
-    
-     public void restartGameWin1(Player n1) {
+    // her vill det være rart med en level loader som loadede en roommatricx med samme nummer som level
+     public void loadLevel2(Player n1) {
 
         Scanner exitopt = new Scanner(System.in);
         System.out.println("Do you wanna play again? Type 'Yes' for yes og 'No' for no");
@@ -256,12 +256,12 @@ public class GameController {
         if (startover.equalsIgnoreCase("yes")) {
             n1.setHealth(100);
             n1.setLocation(roomMatrix2[0][0]);
-            n1.setRoomNr(1);
+            n1.setRoomNr(4);
             System.out.println(n1.getRoomNr() + "  " + n1.getLocation());
             gamerun = true;
 
         } else {
-            restartGameWin1(n1);
+            loadLevel2(n1);
         }
 
     }

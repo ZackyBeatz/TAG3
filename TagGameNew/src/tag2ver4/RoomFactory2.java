@@ -17,7 +17,7 @@ public class RoomFactory2 {
         public Room[][] createRooms() {
 
         // initalise room
-        Room[][] roomMatrix2 = new Room[3][3];
+        Room[][] roomMatrix2 = new Room[3][4];
 
         HealingPotions[] newPotions = new HealingPotionsFactory().createPotions();
         Weapons[] newWeapon = new WeaponsFactory().defineWeapons();
@@ -28,6 +28,7 @@ public class RoomFactory2 {
         // initalise position for each room
         roomMatrix2[0][0] = new Room(1, "\n"
                 + "--------------------------------------------------------------------\n"
+                + "hej med dig "
                 + "You are in the entrance room.\n "
                 + "You find some gold and pick it up \n"
                 + "Suddenly you hear a large crash and see a lot of dust coming\n"
@@ -188,6 +189,7 @@ public class RoomFactory2 {
         
         // DOOR 7 items
         roomMatrix2[1][2].setRoomItem3(newArmor[1]);
+        roomMatrix2[1][2].setEnemy(newEnemy[4]);
         
         // DOOR 8 items  
         roomMatrix2[1][3].setRoomItem2(newWeapon[0]);

@@ -16,11 +16,11 @@ public class HealingPotionsFactory {
 
         HealingPotions[] potions = new HealingPotions[5];
 
-        potions[0] = new HealingPotions("Golden Shot.", "A magic potion with a buzz", 8);
-        potions[1] = new HealingPotions("Sparkling Fuzz.", "Pearly and white, good for your teeth", 5);
-        potions[2] = new HealingPotions("Blue water.", "A potent potion", 10);
-        potions[3] = new HealingPotions("Moon Well.", "Healing Water from springs", 11);
-        potions[4] = new HealingPotions("Medicare Pack", "A potion of healthcare to strengthen your energy again", 12);
+        potions[0] = new HealingPotions("A magic potion with a buzz","Golden Shot",  8);
+        potions[1] = new HealingPotions("Pearly and white, good for your teeth","Sparkling Fuzz",  5);
+        potions[2] = new HealingPotions("A potent potion","Blue water",  10);
+        potions[3] = new HealingPotions("Healing Water from springs","Moon Well",  11);
+        potions[4] = new HealingPotions("A potion of healthcare to strengthen your energy again","Medicare Pack",  12);
 
         return potions;
     }

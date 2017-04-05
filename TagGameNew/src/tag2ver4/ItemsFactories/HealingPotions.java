@@ -60,7 +60,7 @@ public class HealingPotions extends ItemsSuper{
     
      @Override
     public String toString() {
-        return "  " + description + "  " + name + " Increases health:  " + heal ;
+        return name +"  " + description + "   Increases health:  " + heal ;
     }
     
    

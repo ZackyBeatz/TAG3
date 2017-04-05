@@ -23,16 +23,6 @@ public class BackpackController {
     public void Search(Player n1, Room nextRoom) {
 
         HealingPotions item1 = nextRoom.getRoomItem1();
-        
-        HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
-        
-        System.out.println(selectahealingpotion[2].getDescription());
-        
-                
-        
-        
-       
- 
         Weapons item2 = nextRoom.getRoomItem2();
         Armor item3 = nextRoom.getRoomItem3();
 
@@ -46,22 +36,20 @@ public class BackpackController {
         System.out.println("You've found: \n");
 
         if (item1 != null) {
-            System.out.println("" + item1.getName() + "  \n");
+            System.out.println(item1.getName() + "  \n");
 
         }
-        
+
         if (item2 != null) {
-            System.out.println("" + item2.getName() + "  \n");
+            System.out.println(item2.getName() + "  \n");
 
         }
         if (item3 != null) {
-            System.out.println("" + item3.getName() + "  \n");
+            System.out.println(item3.getName() + "  \n");
 
-        }
-        else{
+        } else {
             System.out.println("");
         }
-          
 
     }
 
@@ -89,8 +77,7 @@ public class BackpackController {
                 n1.getBackPack().add(item3);
                 n1.getLocation().getCurrentRoom();
                 n1.getLocation().setRoomItem3(null);
-            }
-            else {
+            } else {
                 n1.getLocation().getCurrentRoom();
             }
 
@@ -105,18 +92,15 @@ public class BackpackController {
         System.out.println("Choose an item by typing it's name");//}
 
         String itemchoice = itemchoose.nextLine();
-       
- HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
-        
+
+        HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
+
         System.out.println(selectahealingpotion[2].getDescription());
-        
-            
-            System.out.println("You do not have such an item try again");
-            itemchoice = itemchoose.nextLine();
 
-        }
+        System.out.println("You do not have such an item try again");
+        itemchoice = itemchoose.nextLine();
 
-   
+    }
 
     public void printBackPack(Player n1) {
         for (int i = 0; i < n1.getBackPack().size(); i++) {
