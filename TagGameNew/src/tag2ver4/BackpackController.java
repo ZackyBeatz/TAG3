@@ -20,7 +20,7 @@ import tag2ver4.ItemsFactories.HealingPotionsFactory;
 public class BackpackController {
 
     Scanner putinsack = new Scanner(System.in);
-    Scanner itemchoose = new Scanner(System.in);
+   
 
     public void Search(Player n1, Room nextRoom) {
 
@@ -89,32 +89,7 @@ public class BackpackController {
 
     }
 
-    public void rucksackOptions(Player n1) {
-        
-        //Våben- og Armor Arrayene er her implementeret
-        Weapons[] selectaweapon = new WeaponsFactory().defineWeapons();
-        
-        Armor[] selectanarmor = new ArmorFactory().defineArmor();
-        
-        
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println("Choose an item by typing it's name");//}
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        String itemchoice = itemchoose.nextLine();
-        
-
-        HealingPotions[] selectahealingpotion = new HealingPotionsFactory().createPotions();
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println(selectahealingpotion[2].getDescription());
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-       
-        // her skal der være et if statement der sammenligner itemchoice indtastningen med objercter i rygsækken
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println("You do not have such an item try again");
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        
-
-    }
+   
 
     public void printBackPack(Player n1) {
         for (int i = 0; i < n1.getBackPack().size(); i++) {

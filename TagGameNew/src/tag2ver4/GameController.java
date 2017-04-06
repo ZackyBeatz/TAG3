@@ -211,7 +211,7 @@ public class GameController {
 
             case "sack":
                 bpc.printBackPack(n1);
-                bpc.rucksackOptions(n1);
+                bpc.rucksackOptions(n1,n1.getLocation());
                 break;
 
             case "search":

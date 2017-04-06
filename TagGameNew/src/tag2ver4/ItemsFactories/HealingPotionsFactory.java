@@ -16,7 +16,7 @@ public class HealingPotionsFactory {
 
         HealingPotions[] potions = new HealingPotions[6];
 
-        potions[0] = new HealingPotions("A magic potion with a buzz","Golden Shot.",  8);
+        potions[0] = new HealingPotions("A magic potion with a buzz","Golden Shot",  8);
         potions[1] = new HealingPotions("Pearly and white, good for your teeth.","Sparkling Fuzz",  5);
         potions[2] = new HealingPotions("A potent potion.","Blue water",  10);
         potions[3] = new HealingPotions("Healing Water from springs.","Moon Well",  11);

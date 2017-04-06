@@ -1,7 +1,9 @@
 
 package tag2ver4.ItemsFactories;
 
+import java.util.Random;
 import tag2ver4.ItemsSuper;
+import tag2ver4.Player;
 
 /**
  *
@@ -11,6 +13,8 @@ public class Weapons extends ItemsSuper {
     private int weapons;
     String description;
     String name;
+    Random attack = new Random();
+    int attack1;
   
     public String getName() {
         return name;
@@ -37,13 +41,16 @@ public class Weapons extends ItemsSuper {
     
     
     public int getWeapons() {
+        
+        
         return weapons;
     }
-
-    public void setWeapons(int weapons) {
-        this.weapons = weapons;
+   
+    public void setWeapons(int weapons) { 
+        attack1 = attack.nextInt(4);
+        this.weapons = weapons+attack1;
     }
-
+ 
   
       @Override
     public String toString() {

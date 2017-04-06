@@ -16,13 +16,21 @@ import tag2ver4.Room;
  */
 public class Enemy extends ItemsSuper {
 
+    public Random getAttack() {
+        return attack;
+    }
+
+    public void setAttack(Random attack) {
+        this.attack = attack;
+    }
+
    
   
     
     private String name;
     private String description;
     private int enemyDamage;
-    private int enemyHealth;
+    public int enemyHealth;
     Random attack = new Random();
     
     
@@ -39,7 +47,7 @@ public class Enemy extends ItemsSuper {
 
     @Override
     public String toString() {
-        return  "A  "+name +   "  attacks you!\n   It is " + description + "\n with an attack that damages your health: " + enemyDamage + "\nYou enemy's health:  " + enemyHealth;
+        return  "A  "+name +   "  attacks you!\n   It is " + description + "\n with an attack that damages your health minimum: " + enemyDamage + "\nYou enemy's health:  " + enemyHealth;
     }
 
     public int getEnemyHealth() {
@@ -55,9 +63,7 @@ public class Enemy extends ItemsSuper {
         return enemyDamage;
     }
     
-    public int decreaseEnemyHealth(Player n1){
-        return enemyHealth-n1.attack();
-    }
+  
 
     public void setEnemyDamage(int enemyDamage) {
         this.enemyDamage = enemyDamage;
@@ -78,6 +84,5 @@ public class Enemy extends ItemsSuper {
     public void setDescription(String description) {
         this.description = description;
     }
-
-  
+    
 }

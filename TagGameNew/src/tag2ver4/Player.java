@@ -20,8 +20,7 @@ public class Player{
     private int roomNr;
     private int playerGold;
     private ArrayList <ItemsSuper> backPack = new ArrayList<>();
-    Random attack = new Random();
-    int attack1;
+    
     
 
    
@@ -33,10 +32,7 @@ public class Player{
         this.playerGold = playerGold;
     }
         
-    public int attack(){
-        attack1 = attack.nextInt(10) + 1;
-        return attack1;
-    }    
+   
 
   
     public int getPlayerGold() {
@@ -67,7 +63,7 @@ public class Player{
 
     public void setName(String name) {
         this.name = name;
-        name= name;
+        
     }
 
     public int getHealth() {
@@ -86,7 +82,7 @@ public class Player{
         return location;
     }
 
-          
+        
     public ArrayList<ItemsSuper> getBackPack() {
         return backPack;
     }
