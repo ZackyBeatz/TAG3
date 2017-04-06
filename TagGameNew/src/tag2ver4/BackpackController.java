@@ -7,8 +7,10 @@ package tag2ver4;
 
 import java.util.Scanner;
 import tag2ver4.ItemsFactories.Armor;
+import tag2ver4.ItemsFactories.ArmorFactory;
 import tag2ver4.ItemsFactories.HealingPotions;
 import tag2ver4.ItemsFactories.Weapons;
+import tag2ver4.ItemsFactories.WeaponsFactory;
 import tag2ver4.ItemsFactories.HealingPotionsFactory;
 
 /**
@@ -88,6 +90,13 @@ public class BackpackController {
     }
 
     public void rucksackOptions(Player n1) {
+        
+        //Våben- og Armor Arrayene er her implementeret
+        Weapons[] selectaweapon = new WeaponsFactory().defineWeapons();
+        
+        Armor[] selectanarmor = new ArmorFactory().defineArmor();
+        
+        
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("Choose an item by typing it's name");//}
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
