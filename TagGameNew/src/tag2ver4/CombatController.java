@@ -30,6 +30,7 @@ public class CombatController {
     Scanner itemchoose = new Scanner(System.in);
     BackpackController bpc = new BackpackController();
     Random enemygold = new Random();
+    
 
     public void Combat(Player n1, Enemy e1) {
         System.out.println(n1.getLocation().getEnemy());
