@@ -26,174 +26,202 @@ public class CombatController {
     // at any time you can type help and then  sack and see whats in your backpack
     Boundery b = new Boundery();
     Scanner combat = new Scanner(System.in);
-    String actionchoice;
-    Scanner itemchoose = new Scanner(System.in);
     BackpackController bpc = new BackpackController();
-    Random enemygold = new Random();
+    public boolean action;
+    public boolean interaction;
+    int ehealth;
 
-    public void Combat(Player n1, Enemy e1) {
-        System.out.println(n1.getLocation().getEnemy());
-        enemyAttacks(n1, e1);
-        Action(n1, e1);
-    }
+    //Våben- og Armor Arrayene er her implementeret
+    HealingPotions[] getpotion = new HealingPotionsFactory().createPotions();
+    Weapons[] selectaweapon = new WeaponsFactory().defineWeapons();
+    Armor[] selectanarmor = new ArmorFactory().defineArmor();
 
-    public void chooseAction(Player n1) {
+    public void Interaction(Player n1, Enemy e1) {
+        ehealth = n1.getLocation().getEnemy().getEnemyHealth();
+        while (n1.getHealth() > 0 && ehealth > 0) {
 
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("What a monster!!! Do you wanna flee, fight or bargain?\n"
-                + "type 'flee' for flight,  'fight' for combat, and 'bargain' for bargain");
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        actionchoice = combat.nextLine();
+            interaction = true;
+            while (interaction) {
 
-    }
+                n1.setHealth(n1.getHealth() - n1.getLocation().getEnemy().getEnemyDamage());
+                n1.getHealth();
 
-    public void Action(Player n1, Enemy e1) {
+                b.sufferDamage(n1);
+                b.chooseInterAction(n1);
 
-        chooseAction(n1);
-
-        if (actionchoice.equalsIgnoreCase("flee")) {
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            System.out.println("You lose " + (n1.getPlayerGold() / 2) + "  gold");
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            n1.setPlayerGold(n1.getPlayerGold() / 2);
-            int newroomgold = n1.getPlayerGold() / 2;
-            n1.getLocation().setGold(newroomgold);
-            n1.setLocation(n1.getLocation());
-
-        }
-
-        if (actionchoice.equalsIgnoreCase("bargain")) {
-
-            Bargain(n1, e1);
-        }
-
-        if (actionchoice.equalsIgnoreCase("fight")) {
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            System.out.println("Check you backpack to see if you have any weapon or armor \n"
-                    + "you can use against your enemy");
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            FightBack(n1, e1);
-        }
-
-    }
-
-    public void enemyAttacks(Player n1, Enemy e1) {
-        n1.setHealth(n1.getHealth() - n1.getLocation().getEnemy().getEnemyDamage());
-        n1.getHealth();
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("You suffer " + n1.getLocation().getEnemy().getEnemyDamage() + " damage");
-        System.out.println("Your health is now:  " + n1.getHealth());
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-    }
-
-    public void FightBack(Player n1, Enemy e1) {
-        int goldfind = enemygold.nextInt(6) + 1;
-        bpc.printBackPack(n1);
-        System.out.println("Choose weapon, armor or potion");
-        HealingPotions[] getpotion = new HealingPotionsFactory().createPotions();
-        Weapons[] selectaweapon = new WeaponsFactory().defineWeapons();
-        Armor[] selectanarmor = new ArmorFactory().defineArmor();
-
-//        //Våben- og Armor Arrayene er her implementeret
-//        
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println("Choose an item by typing it's name");//}
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
-        String itemchoice = itemchoose.nextLine();
-
-        for (int i = 0; i < n1.getBackPack().size(); i++) {
-            if (getpotion[i].getName().equalsIgnoreCase(itemchoice)) {
-                System.out.println(getpotion[i]);
-                getpotion[i].heal(n1);
-            }
-            if (selectaweapon[i].getName().equalsIgnoreCase(itemchoice)) {
-                System.out.println(selectaweapon[i]);
-                e1.enemyHealth = n1.getLocation().getEnemy().enemyHealth - selectaweapon[i].getWeapons();
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                System.out.println("You enemy's health is down to:  " + e1.enemyHealth);
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                enemyAttacks(n1,e1);
-            }
-            if (e1.enemyHealth <= 0) {
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                System.out.println("The  " + n1.getLocation().getEnemy().getName() + "  is dead!");
-                System.out.println("You get  " + goldfind + " gold pieces from the belly of the dead monster");
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                n1.setPlayerGold(n1.getPlayerGold() + goldfind);
-                n1.getLocation().setEnemy(null);
-                b.chooseDirection();
-
-            }
-
-            if (selectanarmor[i].getName().equalsIgnoreCase(itemchoice)) {
-                System.out.println(selectanarmor[i]);
-
-            }
-            if (!((getpotion[i].getName().equalsIgnoreCase(itemchoice)) || (selectaweapon[i].getName().equalsIgnoreCase(itemchoice)) || (selectanarmor[i].getName().equalsIgnoreCase(itemchoice)))) {
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                System.out.println("Bugger! You do not have such a thing, choose again? 'yes' for 'yes' 'no' for \n"
-                        + "getting back to the monster");
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                if (itemchoice.equalsIgnoreCase("yes")) {
-                    FightBack(n1, e1);
+                if (b.actionchoice.equalsIgnoreCase("flee")) {
+                    Flee(n1);
                 }
-                if (itemchoice.equalsIgnoreCase("no")) {
-                    Action(n1, e1);
+
+                if (b.actionchoice.equalsIgnoreCase("bargain")) {
+
+                    Bargain(n1, e1);
+                }
+
+                if (b.actionchoice.equalsIgnoreCase("fight")) {
+                    b.checkPackback(n1);
+                    Fight(n1, e1);
+
+                }
+
+                if (b.actionchoice.equalsIgnoreCase("help")) {
+                    b.helpMenuInfight(n1);
+                }
+
+            }
+        }
+    }
+
+    public void Fight(Player n1, Enemy e1) {
+        GameController gc = new GameController();
+        CombatController cc = new CombatController();
+
+        action = true;
+        while (action) {
+
+            bpc.printBackPack(n1);
+            b.chooseItem(n1);
+            ehealth = n1.getLocation().getEnemy().getEnemyHealth();
+
+            for (int i = 0; i < n1.getBackPack().size(); i++) {
+//                n1.getLocation().getEnemy().setEnemyHealth(ehealth - selectaweapon[i].getWeapons());
+
+                if (getpotion[i].getName().equalsIgnoreCase(b.itemchoice)) {
+                    System.out.println(getpotion[i]);
+                    getpotion[i].heal(n1);
+                    getpotion[i].setHeal(0);
+                    b.YourHealthIsDown(n1);
+                    Interaction(n1, e1);
+
+                }
+
+                if (selectaweapon[i].getName().equalsIgnoreCase(b.itemchoice)) {
+                    System.out.println(selectaweapon[i]);
+                    n1.getLocation().getEnemy().setEnemyHealth(ehealth - selectaweapon[i].getWeapons());
+                    ehealth = n1.getLocation().getEnemy().getEnemyHealth();
+                    b.EnemyHealthIsDown(n1);
+
+                    if (ehealth <= 0) {
+                        action = false;
+                        b.EnemyisDeath(n1);
+                        n1.setPlayerGold(n1.getPlayerGold() + n1.getLocation().getEnemy().getGoldfind());
+                        interaction = false;
+                        n1.getLocation().setEnemy(null);
+                        n1.getLocation();
+                        b.stillInRoom(n1);
+                        gc.runGame(n1);
+
+                    }
+                    if (n1.getHealth() <= 0) {
+                        interaction = false;
+                        action = false;
+                        b.youAreDead();
+                        b.playAgain();
+
+                    } else {
+                        Interaction(n1, e1);
+                        Fight(n1, e1);
+                    }
+                }
+
+                if (selectanarmor[i].getName().equalsIgnoreCase(b.itemchoice)) {
+                    System.out.println(selectanarmor[i]);
+                    n1.setHealth(n1.getHealth() - n1.getLocation().getEnemy().getEnemyDamage() + selectanarmor[i].getProtect());
+                    n1.getHealth();
+                    b.deflectEnemyAttack(n1);
+                    System.out.print(selectanarmor[i].getProtect());
+                    b.SufferLess(n1);
+                    System.out.println(n1.getLocation().getEnemy().getDamage() + -selectanarmor[i].getProtect());
                 } else {
-                    System.out.println("Say what!");
-                    FightBack(n1, e1);
+                    b.Bugger(n1);
+                    Fight(n1, e1);
                 }
-
-                if (n1.getBackPack().isEmpty()) {
-                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                }
-                System.out.println("You backpack is empty. Flee og bargain");
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                chooseAction(n1);
 
             }
         }
+
     }
 
     public void Bargain(Player n1, Enemy e1) {
-        Scanner bargainscan = new Scanner(System.in);
-        int bargainoffer;
+
+        GameController gc = new GameController();
 
         if (!(n1.getLocation().getEnemy().getName().equals("Snorkl Snake")) || n1.getLocation().getEnemy().getName().equals("Politician")) {
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            System.out.println("How much gold are you willing to give?");
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            bargainoffer = bargainscan.nextInt();
+            b.GoldOffer(n1);
 
-            if (bargainoffer >= (n1.getLocation().getEnemy().getEnemyDamage())) {
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                System.out.println("You are very generous. You can pass");
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-                n1.setPlayerGold(n1.getPlayerGold() - bargainoffer);
+            if (b.bargainoffer >= (n1.getLocation().getEnemy().getEnemyDamage())) {
+                b.GenerousYou(n1);
+                n1.setPlayerGold(n1.getPlayerGold() - b.bargainoffer);
+                n1.getLocation();
+                gc.runGame(n1);
+                action = false;
+
             } else {
-                enemyAttacks(n1, e1);
-                n1.setPlayerGold(n1.getPlayerGold() - bargainoffer);
+                b.insultEnemy(n1);
+                Interaction(n1, e1);
+                n1.setPlayerGold(n1.getPlayerGold() - b.bargainoffer);
+                n1.getLocation();
+                gc.runGame(n1);
+                action = false;
 
             }
 
         }
         if (n1.getLocation().getEnemy().getName().equals("Snorkl Snake")) {
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            System.out.println("You are not Harry Potter. You do not speak parsel tongue.\n You are  " + n1.name + "  be fucking proud of your self and go get that snake");
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Action(n1, e1);
+            b.notHarryPotter(n1);
+            action = true;
 
         }
 
         if (n1.getLocation().getEnemy().getName().equals("Politician")) {
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            System.out.println("I haven't got a great bargening story yet but it will come");
-            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Action(n1, e1);
-
+            b.noBargeningSucces(n1);
+            action = true;
         }
-
     }
 
+    public void Flee(Player n1) {
+        GameController gc = new GameController();
+        b.LoseGoldFleeing(n1);
+        n1.setPlayerGold(n1.getPlayerGold() / 2);
+        int newroomgold = n1.getPlayerGold() / 2;
+        n1.getLocation().setGold(newroomgold);
+        n1.setLocation(n1.getLocation());
+        action = false;
+        interaction = false;
+        gc.runGame(n1);
+    }
+    //    // This kinda sucks since it is almost a copy of the origrinal helpmenu
+
+    public void HelpInFight(Player n1) {
+
+        b.helpMenuInfight(n1);
+        action = false;
+
+        switch (b.helpInput) {
+            case "1":
+                action = true;
+                break;
+
+            case "2":
+                b.collectedGold(n1);
+                HelpInFight(n1);
+                break;
+
+            case "3":
+                b.healthMessage(n1);
+                HelpInFight(n1);
+                break;
+
+            case "4":
+                bpc.printBackPack(n1);
+                HelpInFight(n1);
+                break;
+
+            case "5":
+                b.gameOver(n1);
+                System.exit(0);
+                break;
+
+        }
+    }
 }

@@ -33,7 +33,7 @@ public class RoomFactory {
                 + "Suddenly you hear a large crash and see a lot of dust coming\n"
                 + "out of the tunnel you just left. \n"
                 + "There are two tunnels leading out of this room. One heading north\n"
-                + "and one heading east.\n"
+                + "and one heading east. \n"
                 + "--------------------------------------------------------------------", 3);
 
         roomMatrix[0][1] = new Room(2, "\n"

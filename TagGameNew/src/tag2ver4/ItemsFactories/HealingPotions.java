@@ -55,6 +55,8 @@ public class HealingPotions extends ItemsSuper{
     // heals player method
     public void heal(Player n1){
         n1.setHealth(n1.getHealth()+heal);
+       
+        
     }
     
     

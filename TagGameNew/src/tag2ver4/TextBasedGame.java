@@ -17,7 +17,8 @@ public class TextBasedGame {
         Player n1 = new Player(name, 100, roomMatrix[0][0], 1, 0);
 
         b.intro(n1);
-        g.runGame(n1);
+        g.StartGame(n1);
+//        g.runGame(n1);
 
     }
 

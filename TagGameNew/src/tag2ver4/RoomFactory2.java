@@ -207,6 +207,7 @@ public class RoomFactory2 {
         
         // DOOR 12 items 
         roomMatrix2[2][3].setRoomItem1(newPotions[2]);
+       
         
         return roomMatrix2;
     } 

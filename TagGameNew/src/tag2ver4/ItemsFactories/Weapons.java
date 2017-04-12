@@ -13,9 +13,9 @@ public class Weapons extends ItemsSuper {
     private int weapons;
     String description;
     String name;
-    Random attack = new Random();
-    int attack1;
-  
+    
+    
+    
     public String getName() {
         return name;
     }
@@ -42,13 +42,12 @@ public class Weapons extends ItemsSuper {
     
     public int getWeapons() {
         
-        
         return weapons;
     }
    
     public void setWeapons(int weapons) { 
-        attack1 = attack.nextInt(4);
-        this.weapons = weapons+attack1;
+        
+        this.weapons = weapons;
     }
  
   

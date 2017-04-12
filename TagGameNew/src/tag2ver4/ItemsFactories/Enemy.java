@@ -16,6 +16,8 @@ import tag2ver4.Room;
  */
 public class Enemy extends ItemsSuper {
 
+    
+    
     public Random getAttack() {
         return attack;
     }
@@ -30,17 +32,22 @@ public class Enemy extends ItemsSuper {
     private String name;
     private String description;
     private int enemyDamage;
-    public int enemyHealth;
+    private int enemyHealth;
     Random attack = new Random();
-    
-    
+    private int goldfind;
+
+  
     
 
-     public Enemy(String name, String description, int enemyDamage, int enemyHealth) {
+   
+    
+
+     public Enemy(String name, String description, int enemyDamage, int enemyHealth, int goldfind) {
         this.name = name;
         this.description = description;
         this.enemyDamage = enemyDamage;
         this.enemyHealth = enemyHealth;
+        this.goldfind= goldfind;
     }
   
  
@@ -49,6 +56,16 @@ public class Enemy extends ItemsSuper {
     public String toString() {
         return  "A  "+name +   "  attacks you!\n   It is " + description + "\n with an attack that damages your health minimum: " + enemyDamage + "\nYou enemy's health:  " + enemyHealth;
     }
+    
+     public int getGoldfind() {
+        return goldfind;
+    }
+
+    public void setGoldfind(int goldfind) {
+        this.goldfind = goldfind+attack.nextInt(5);
+    }
+    
+    
 
     public int getEnemyHealth() {
       
@@ -59,7 +76,7 @@ public class Enemy extends ItemsSuper {
     }
    
     public int getEnemyDamage() {
-        enemyDamage = attack.nextInt(5) + enemyDamage;
+        
         return enemyDamage;
     }
     

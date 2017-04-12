@@ -17,7 +17,7 @@ public class WeaponsFactory {
         Weapons[] defineWeapons = new Weapons[10];
 
         defineWeapons[0] = new Weapons(4, " is a standard mele weapon.", "Sword");
-       
+        
 
         defineWeapons[1] = new Weapons(6, " A powerful rocket launcher wich does a heavy amount of damage.", "Patriot Rocket Launcher");
        

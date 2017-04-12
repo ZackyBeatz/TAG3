@@ -57,7 +57,7 @@ public class BackpackController {
 
     public void addToBackpack(Player n1, Room nextRoom) {
 
-        System.out.println("Type 'add' if you want to put these items in your backpack");
+        System.out.println("Type 'add' if you want to put these items in your backpack press enter if you don't");
         String putinyes = putinsack.nextLine();
 
         HealingPotions item1 = nextRoom.getRoomItem1();
@@ -82,6 +82,7 @@ public class BackpackController {
             } else {
                 n1.getLocation().getCurrentRoom();
             }
+           
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             System.out.println("You have added:  " + item1 + "\n" + item2 + "\n" + item3 + " to your backpack");
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

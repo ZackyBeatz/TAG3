@@ -15,7 +15,7 @@ public class Player{
 
     
     String name;
-    int health;
+    private int health;
     private Room location;
     private int roomNr;
     private int playerGold;
