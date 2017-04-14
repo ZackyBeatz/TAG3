@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import tag2ver4.ItemsFactories.Enemy;
 import tag2ver4.ItemsFactories.Weapons;
+import tag2ver4.ItemsFactories.WeaponsFactory;
 
 /**
  *
@@ -27,14 +28,16 @@ public class GameController {
     CombatController cc = new CombatController();
 
     public void StartGame(Player n1) {
+       Weapons[] selectaweapon = new WeaponsFactory().defineWeapons();
       
-
+ 
         // choose to go inside the roomMatrix or not               
         b.chooseRoomStart();
 
         if (b.enterchoice.equals("1")) {
             System.out.println(n1.getLocation());
-            n1.getBackPack().add(n1.getLocation().getRoomItem2());
+            roomMatrix[0][0].setRoomItem2(selectaweapon[0]);
+            n1.getBackPack().add(roomMatrix[0][0].getRoomItem2());
        
             gamerun = true;
             runGame(n1);
