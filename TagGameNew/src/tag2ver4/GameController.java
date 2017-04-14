@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import tag2ver4.ItemsFactories.Enemy;
+import tag2ver4.ItemsFactories.Weapons;
 
 /**
  *
@@ -26,12 +27,15 @@ public class GameController {
     CombatController cc = new CombatController();
 
     public void StartGame(Player n1) {
+      
 
         // choose to go inside the roomMatrix or not               
         b.chooseRoomStart();
 
         if (b.enterchoice.equals("1")) {
             System.out.println(n1.getLocation());
+            n1.getBackPack().add(n1.getLocation().getRoomItem2());
+       
             gamerun = true;
             runGame(n1);
         }
@@ -195,6 +199,7 @@ public class GameController {
 
             case "6":
                 bpc.Search(n1, n1.getLocation());
+                bpc.addToBackpack(n1, n1.getLocation());
                 Help(n1);
                 break;
         }

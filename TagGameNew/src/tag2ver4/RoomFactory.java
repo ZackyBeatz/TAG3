@@ -128,7 +128,7 @@ public class RoomFactory {
         // PROBLEM ?? SO FAR I CAN ONLY HAVE ONE ITEM PER ROOM
         // DOOR 1 Items
         roomMatrix[0][0].setRoomItem1(newPotions[0]);
-        roomMatrix[0][0].setRoomItem2(newWeapon[0]);
+        roomMatrix[0][0].setRoomItem2(newWeapon[1]);
         roomMatrix[0][0].setEnemy(newEnemy[0]);
         // DOOR 2 items
         roomMatrix[0][1].setRoomItem1(newPotions[0]);
@@ -139,10 +139,10 @@ public class RoomFactory {
 
         // DOOR 4 items
         roomMatrix[1][0].setRoomItem1(newPotions[1]);
-        roomMatrix[1][0].setRoomItem2(newWeapon[1]);
+        roomMatrix[1][0].setRoomItem2(newWeapon[2]);
 
         // DOOR 5 items
-        roomMatrix[1][1].setRoomItem2(newWeapon[1]);
+        roomMatrix[1][1].setRoomItem2(newWeapon[3]);
         roomMatrix[1][1].setRoomItem1(newPotions[2]);
 
         // DOOR 6 items
@@ -152,7 +152,7 @@ public class RoomFactory {
         roomMatrix[2][0].setRoomItem3(newArmor[1]);
 
         // DOOR 8 items
-        roomMatrix[2][1].setRoomItem2(newWeapon[0]);
+        roomMatrix[2][1].setRoomItem2(newWeapon[4]);
         roomMatrix[2][1].setEnemy(newEnemy[1]);
 
         // DOOR 9 items 

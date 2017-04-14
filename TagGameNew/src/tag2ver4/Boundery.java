@@ -35,7 +35,7 @@ public class Boundery {
                 + "or bargain with the monsters\n\n"
                 + "Your health is at 100 when you start, but as you walk around hungry\n"
                 + "and are attacked by monsters frequently, you will gradually lose your health\n\n"
-                + "At any time during your quest, type help and get some options\n"
+                + "At any time during your quest, type 'help' and get some options\n"
                 + "<< This is very important  " + n1.getName() + "  so please pay attention >>\n\n"
                 + "**********************************************************\n"
                 + "Sometimes there are valuable items in the rooms and you can \n"
