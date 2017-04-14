@@ -27,6 +27,7 @@ public class BackpackController {
         HealingPotions item1 = nextRoom.getRoomItem1();
         Weapons item2 = nextRoom.getRoomItem2();
         Armor item3 = nextRoom.getRoomItem3();
+        
 
         // sætter vores ny position for spilleren
         n1.setLocation(nextRoom);
@@ -56,15 +57,19 @@ public class BackpackController {
     }
 
     public void addToBackpack(Player n1, Room nextRoom) {
-
+    Boundery b = new Boundery();
         System.out.println("Type 'add' if you want to put these items in your backpack press enter if you don't");
         String putinyes = putinsack.nextLine();
 
         HealingPotions item1 = nextRoom.getRoomItem1();
         Weapons item2 = nextRoom.getRoomItem2();
         Armor item3 = nextRoom.getRoomItem3();
+        
+      
 
         if (putinyes.equalsIgnoreCase("add")) {  //&& (n1.getLocation().getGold() != 0)
+            
+            
             if (item1 != null) {
                 n1.getBackPack().add(item1);
                 n1.getLocation().getCurrentRoom();
@@ -87,7 +92,7 @@ public class BackpackController {
             System.out.println("You have added:  " + item1 + "\n" + item2 + "\n" + item3 + " to your backpack");
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         }
-
+    
     }
 
    
