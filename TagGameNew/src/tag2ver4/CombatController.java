@@ -79,66 +79,62 @@ public class CombatController {
         action = true;
         while (action) {
 
-            b.printBackPack(n1);
+            bpc.printBackPack(n1);
 
             b.chooseItem(n1);
             ehealth = n1.getLocation().getEnemy().getEnemyHealth();
-     ///////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////
             ItemsSuper selectedItem = null;
-            for(ItemsSuper it : n1.getBackPack()){
-                if(it.getName().equalsIgnoreCase(b.itemchoice)){
+            for (ItemsSuper it : n1.getBackPack()) {
+                if (it.getName().equalsIgnoreCase(b.itemchoice)) {
                     selectedItem = it;
                     break;
                 }
             }
-            if(selectedItem == null){
+            if (selectedItem == null) {
                 // Spilleren har ikke dette item!
-                b.Bugger();
+                b.Bugger(n1);
                 return;
             }
-            if(selectedItem instanceof Weapons){
+            if (selectedItem instanceof Weapons) {
                 Weapons w = (Weapons) selectedItem;
-                 System.out.println(w.getName());
-                    n1.getLocation().getEnemy().setEnemyHealth(ehealth - w.getWeapons());
-                    ehealth = n1.getLocation().getEnemy().getEnemyHealth();
-                    b.EnemyHealthIsDown(n1);
+                System.out.println(w.getName());
+                n1.getLocation().getEnemy().setEnemyHealth(ehealth - w.getWeapons());
+                ehealth = n1.getLocation().getEnemy().getEnemyHealth();
+                b.EnemyHealthIsDown(n1);
 
-                    if (ehealth <= 0) {
-                        action = false;
-                        b.EnemyisDeath(n1);
-                        n1.setPlayerGold(n1.getPlayerGold() + n1.getLocation().getEnemy().getGoldfind());
-                        interaction = false;
-                        n1.getLocation().setEnemy(null);
-                        n1.getLocation();
-                        b.stillInRoom(n1);
-                        gc.runGame(n1);
+                if (ehealth <= 0) {
+                    action = false;
+                    b.EnemyisDeath(n1);
+                    n1.setPlayerGold(n1.getPlayerGold() + n1.getLocation().getEnemy().getGoldfind());
+                    interaction = false;
+                    n1.getLocation().setEnemy(null);
+                    n1.getLocation();
+                    b.stillInRoom(n1);
+                    gc.runGame(n1);
 
-                    }
-                    if (n1.getHealth() <= 0) {
-                        interaction = false;
-                        action = false;
-                        b.youAreDead();
-                        b.playAgain();
-
-                    } else {
-                        Interaction(n1, e1);
-                        Fight(n1, e1);
-                    }
                 }
-                
-                
-             else if(selectedItem instanceof HealingPotions){
+                if (n1.getHealth() <= 0) {
+                    interaction = false;
+                    action = false;
+                    b.youAreDead();
+                    b.playAgain();
+
+                } else {
+                    Interaction(n1, e1);
+                    Fight(n1, e1);
+                }
+            } else if (selectedItem instanceof HealingPotions) {
                 HealingPotions p = (HealingPotions) selectedItem;
-                     if (p.getName().equalsIgnoreCase(b.itemchoice)) {
+                if (p.getName().equalsIgnoreCase(b.itemchoice)) {
                     System.out.println(p.getName());
                     p.heal(n1);
-                   p.setHeal(0);
+                    p.setHeal(0);
                     b.YourHealthIsDown(n1);
                     Interaction(n1, e1);
 
                 }
 
-                
             } else {
                 Armor a = (Armor) selectedItem;
                 if (a.getName().equalsIgnoreCase(b.itemchoice)) {
@@ -149,12 +145,14 @@ public class CombatController {
                     System.out.print(a.getProtect());
                     b.SufferLess(n1);
                     System.out.println(n1.getLocation().getEnemy().getDamage() + -a.getProtect());
-                } 
-                
+                }
+
             }
-            
+
             ///////////////////////////////////////////////////////////
-        }}
+        }
+    }
+
     public void Bargain(Player n1, Enemy e1) {
 
         GameController gc = new GameController();
@@ -226,7 +224,7 @@ public class CombatController {
                 break;
 
             case "4":
-                b.printBackPack(n1);
+                bpc.printBackPack(n1);
                 HelpInFight(n1);
                 break;
 
