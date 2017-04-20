@@ -3,16 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4.ItemsFactories;
-
-import tag2ver4.ItemsSuper;
-import tag2ver4.Player;
+package tag2ver4.Entities;
 
 /**
  *
  * @author Ticondrus
  */
-public class Skatekiste extends ItemsSuper {
+public class Skattekiste extends ItemsSuper {
     
     private int skatte;
     String description;
@@ -26,7 +23,7 @@ public class Skatekiste extends ItemsSuper {
         this.name = name;
     }
 
-    public Skatekiste(int skatte, String description, String name) {
+    public Skattekiste(int skatte, String description, String name) {
         this.skatte = skatte;
         this.description = description;
         this.name = name;

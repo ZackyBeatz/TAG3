@@ -1,9 +1,7 @@
 
-package tag2ver4.ItemsFactories;
+package tag2ver4.Entities;
 
 import java.util.Random;
-import tag2ver4.ItemsSuper;
-import tag2ver4.Player;
 
 /**
  *

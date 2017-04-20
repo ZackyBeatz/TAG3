@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4;
+package tag2ver4.Entities;
 
 
-import tag2ver4.ItemsFactories.Armor;
-import tag2ver4.ItemsFactories.HealingPotions;
-import tag2ver4.ItemsFactories.Weapons;
-import tag2ver4.ItemsFactories.Enemy;
+import tag2ver4.Entities.Armor;
+import tag2ver4.Entities.HealingPotions;
+import tag2ver4.Entities.Weapons;
+import tag2ver4.Entities.Enemy;
 /**
  *
  * @author Zack

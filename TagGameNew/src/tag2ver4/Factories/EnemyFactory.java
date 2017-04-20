@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4.ItemsFactories;
+package tag2ver4.Factories;
 
-import tag2ver4.ItemsFactories.HealingPotions;
+import tag2ver4.Entities.Enemy;
+import tag2ver4.Entities.HealingPotions;
 
 /**
  *

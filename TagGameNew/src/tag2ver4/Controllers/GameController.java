@@ -1,12 +1,19 @@
-package tag2ver4;
+package tag2ver4.Controllers;
 
+import tag2ver4.Controllers.BackpackController;
+import tag2ver4.Controllers.CombatController;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import tag2ver4.ItemsFactories.Enemy;
-import tag2ver4.ItemsFactories.Weapons;
-import tag2ver4.ItemsFactories.WeaponsFactory;
+import tag2ver4.Boundery;
+import tag2ver4.Entities.Enemy;
+import tag2ver4.Entities.Weapons;
+import tag2ver4.Factories.WeaponsFactory;
+import tag2ver4.Entities.Player;
+import tag2ver4.Entities.Room;
+import tag2ver4.Factories.RoomFactory;
+import tag2ver4.Factories.RoomFactory2;
 
 /**
  *
@@ -254,8 +261,8 @@ public class GameController {
 
     public static void printMethod(Player n1) {
         try {
-            String file = "C:\\Users\\Ejer\\Desktop\\Datamatiker\\TagGame2\\TagGame2\\TagGameNew\\src\\tag2ver4\\HighScores.txt";
-            String text = "High scores:" + n1.name + "  " + n1.getPlayerGold();
+            String file = "C:\\Users\\Ejer\\Desktop\\Datamatiker\\TagGame2\\TagGame2\\TagGameNew\\src\\tag2ver4\\Scores.txt";
+            String text = "High scores:" + n1.getName() + "  " + n1.getPlayerGold();
             try (BufferedWriter out = new BufferedWriter(new FileWriter(file, true))) {
                 out.write(text);
             }

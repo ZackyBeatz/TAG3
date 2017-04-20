@@ -1,15 +1,18 @@
-package tag2ver4;
+package tag2ver4.Controllers;
 
 import java.util.Random;
 import java.util.Scanner;
-import tag2ver4.ItemsFactories.Armor;
-import tag2ver4.ItemsFactories.ArmorFactory;
-import tag2ver4.ItemsFactories.HealingPotions;
-import tag2ver4.ItemsFactories.Weapons;
-import tag2ver4.ItemsFactories.HealingPotionsFactory;
-import tag2ver4.ItemsFactories.Enemy;
-import tag2ver4.ItemsFactories.EnemyFactory;
-import tag2ver4.ItemsFactories.WeaponsFactory;
+import tag2ver4.Boundery;
+import tag2ver4.Entities.Armor;
+import tag2ver4.Factories.ArmorFactory;
+import tag2ver4.Entities.HealingPotions;
+import tag2ver4.Entities.Weapons;
+import tag2ver4.Factories.HealingPotionsFactory;
+import tag2ver4.Entities.Enemy;
+import tag2ver4.Factories.EnemyFactory;
+import tag2ver4.Factories.WeaponsFactory;
+import tag2ver4.Entities.ItemsSuper;
+import tag2ver4.Entities.Player;
 
 /**
  *

@@ -1,13 +1,15 @@
-package tag2ver4;
+package tag2ver4.Factories;
 
-import tag2ver4.ItemsFactories.Armor;
-import tag2ver4.ItemsFactories.ArmorFactory;
-import tag2ver4.ItemsFactories.Enemy;
-import tag2ver4.ItemsFactories.EnemyFactory;
-import tag2ver4.ItemsFactories.HealingPotions;
-import tag2ver4.ItemsFactories.HealingPotionsFactory;
-import tag2ver4.ItemsFactories.Weapons;
-import tag2ver4.ItemsFactories.WeaponsFactory;
+import tag2ver4.Entities.Armor;
+import tag2ver4.Entities.Armor;
+import tag2ver4.Entities.Enemy;
+import tag2ver4.Entities.Enemy;
+import tag2ver4.Entities.HealingPotions;
+import tag2ver4.Entities.HealingPotions;
+import tag2ver4.Entities.Room;
+import tag2ver4.Entities.Weapons;
+import tag2ver4.Entities.Weapons;
+import tag2ver4.Factories.WeaponsFactory;
 
 /**
  *

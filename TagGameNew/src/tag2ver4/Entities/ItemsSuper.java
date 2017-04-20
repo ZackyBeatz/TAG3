@@ -1,5 +1,7 @@
 
-package tag2ver4;
+package tag2ver4.Entities;
+
+import tag2ver4.Entities.Player;
 
 /**
  *

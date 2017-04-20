@@ -1,7 +1,8 @@
-package tag2ver4;
+package tag2ver4.Entities;
 
 
 
+import tag2ver4.Entities.Room;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -73,6 +74,8 @@ public class Player{
     public void setHealth(int health) {
         this.health = health;
     }
+    
+    
 
     public void setLocation(Room location) {
         this.location = location;

@@ -3,22 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4;
+package tag2ver4.HighScoreRelated;
 import java.util.*;
 import java.io.*;
+
 /**
  *
  * @author Zack
  */
 public class HighScoreManager {
-        private static final String HIGHSCORE_FILE = "scores.dat";
+        private static final String HIGHSCORE_FILE = "scores.txt";
            ArrayList<Score> scores;
 
         ObjectOutputStream outputStream = null;
         ObjectInputStream inputStream = null;
 
         public HighScoreManager() {
-            scores = new ArrayList<Score>();
+            scores = new ArrayList<>();
          }
 
         public ArrayList<Score> getScores() {
@@ -95,18 +96,18 @@ public class HighScoreManager {
             String highscoreString = "";
             int max = 10;
 
-            ArrayList<Score> scores;
-            scores = getScores();
+            ArrayList<Score> scores1;
+            scores1 = getScores();
 
             int i = 0;
-            int x = scores.size();
+            int x = scores1.size();
             if (x > max) {
                 x = max;
             }
 
             while (i < x) {
-                highscoreString += (i + 1) + ".\t" + scores.get(i).getName() + "  "
-                        + scores.get(i).getScore() + "\n";
+                highscoreString += (i + 1) + ".\t" + scores1.get(i).getName() + "  "
+                        + scores1.get(i).getScore() + "\n";
                 i++;
             }
 

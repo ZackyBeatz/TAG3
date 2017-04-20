@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4;
+package tag2ver4.Controllers;
 
 import java.util.Scanner;
-import tag2ver4.ItemsFactories.Armor;
-import tag2ver4.ItemsFactories.ArmorFactory;
-import tag2ver4.ItemsFactories.HealingPotions;
-import tag2ver4.ItemsFactories.Weapons;
-import tag2ver4.ItemsFactories.WeaponsFactory;
-import tag2ver4.ItemsFactories.HealingPotionsFactory;
+import tag2ver4.Boundery;
+import tag2ver4.Entities.Armor;
+import tag2ver4.Factories.ArmorFactory;
+import tag2ver4.Entities.HealingPotions;
+import tag2ver4.Entities.Weapons;
+import tag2ver4.Factories.WeaponsFactory;
+import tag2ver4.Factories.HealingPotionsFactory;
+import tag2ver4.Entities.Player;
+import tag2ver4.Entities.Room;
 
 /**
  *
@@ -27,7 +30,6 @@ public class BackpackController {
         HealingPotions item1 = nextRoom.getRoomItem1();
         Weapons item2 = nextRoom.getRoomItem2();
         Armor item3 = nextRoom.getRoomItem3();
-        
 
         // sætter vores ny position for spilleren
         n1.setLocation(nextRoom);
@@ -94,8 +96,6 @@ public class BackpackController {
         }
     
     }
-
-   
 
     public void printBackPack(Player n1) {
         for (int i = 0; i < n1.getBackPack().size(); i++) {

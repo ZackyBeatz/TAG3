@@ -1,5 +1,6 @@
 package tag2ver4;
 
+import tag2ver4.Entities.Player;
 import java.util.Scanner;
 
 /**
@@ -8,16 +9,16 @@ import java.util.Scanner;
  */
 public class Boundery {
 
-    String itemchoice;
-    String helpInput;
-    String actionchoice;
-    String enterchoice;
-    String nextlevel;
-    String brugerInput;
-    String startover;
-    String helpInFight;
+    public String itemchoice;
+    public String helpInput;
+    public String actionchoice;
+    public String enterchoice;
+    public String nextlevel;
+    public String brugerInput;
+    public String startover;
+    public String helpInFight;
     Scanner exitopt = new Scanner(System.in);
-    int bargainoffer;
+   public int bargainoffer;
 
 //   1. Intro and outro text and scans:
     public void intro(Player n1) {
@@ -235,7 +236,7 @@ public class Boundery {
 //          when you chose bargain
     public void notHarryPotter(Player n1) {
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("You are not Harry Potter. You do not speak parsel tongue.\n You are  " + n1.name + "  be fucking proud of your self and go get that snake");
+        System.out.println("You are not Harry Potter. You do not speak parsel tongue.\n You are  " + n1.getName()+ "  be fucking proud of your self and go get that snake");
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
     }
 

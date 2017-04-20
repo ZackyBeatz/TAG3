@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4.ItemsFactories;
-
-import tag2ver4.ItemsSuper;
+package tag2ver4.Entities;
 
 /**
  *

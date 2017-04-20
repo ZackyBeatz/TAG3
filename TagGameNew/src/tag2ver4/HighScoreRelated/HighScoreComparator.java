@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4;
+package tag2ver4.HighScoreRelated;
 
 import java.util.Comparator;
-
 /**
  *
  * @author Zack
  */
 public class HighScoreComparator implements Comparator<Score> {
-      public int compare(Score score1, Score score2) {
+      
+    public int compare(Score score1, Score score2) {
 
             int sc1 = score1.getScore();
             int sc2 = score2.getScore();
