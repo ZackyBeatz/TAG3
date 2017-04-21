@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4;
+package tag2ver4.HighScoreRelated;
 import java.util.*;
 import java.io.*;
+import tag2ver4.HighScoreRelated.Score;
 /**
  *
  * @author Zack
