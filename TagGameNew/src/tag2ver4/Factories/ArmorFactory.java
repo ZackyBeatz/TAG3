@@ -15,16 +15,16 @@ public class ArmorFactory {
 
     public Armor[] defineArmor() {
 
-        Armor Definearmor[] = new Armor[3];
+        Armor definearmor[] = new Armor[3];
 
-        Definearmor[0] = new Armor(1, "Armor is your shield against hostile monsters \n", "Armor");
+       definearmor [0] = new Armor(1, "Armor is your shield against hostile monsters \n", "Armor");
 
-        Definearmor[1] = new Armor(2, "Armor is your shield against hostile monsters \n", "Armor2");
+        definearmor [1] = new Armor(2, "Armor is your shield against hostile monsters \n", "Armor2");
         
-        Definearmor[2] = new Armor(3, "This armor could be f.ex monsters immunity over a specific weapon...\n", "MonsterArmor");
+        definearmor [2] = new Armor(3, "This armor could be f.ex monsters immunity over a specific weapon...\n", "MonsterArmor");
        
 
-        return Definearmor;
+        return definearmor ;
 
     }
 

@@ -2,6 +2,7 @@ package tag2ver4.Entities;
 
 
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type;
 import tag2ver4.Entities.Room;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ public class Player{
         this.roomNr = roomNr;
         this.playerGold = playerGold;
     }
-        
+
    
 
   

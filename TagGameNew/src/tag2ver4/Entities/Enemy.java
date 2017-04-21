@@ -13,6 +13,8 @@ import java.util.Random;
  */
 public class Enemy extends ItemsSuper {
 
+   
+
     
     
     public Random getAttack() {
@@ -32,22 +34,27 @@ public class Enemy extends ItemsSuper {
     private int enemyHealth;
     Random attack = new Random();
     private int goldfind;
+    private Jewel jewel;
 
-  
-    
+ 
 
-   
-    
-
-     public Enemy(String name, String description, int enemyDamage, int enemyHealth, int goldfind) {
+    public Enemy(String name, String description, int enemyDamage, int enemyHealth, int goldfind, Jewel jewel) {
         this.name = name;
         this.description = description;
         this.enemyDamage = enemyDamage;
         this.enemyHealth = enemyHealth;
-        this.goldfind= goldfind;
+        this.goldfind = goldfind;
+        this.jewel = jewel;
+    }
+   public Jewel getJewel() {
+        return jewel;
+    }
+
+    public void setJewel(Jewel jewel) {
+        this.jewel = jewel;
     }
   
- 
+    
 
     @Override
     public String toString() {

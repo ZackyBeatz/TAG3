@@ -3,6 +3,7 @@ package tag2ver4;
 import tag2ver4.Entities.Player;
 import java.util.Scanner;
 
+
 /**
  *
  * @author BendikteEva
@@ -18,7 +19,7 @@ public class Boundery {
     public String startover;
     public String helpInFight;
     Scanner exitopt = new Scanner(System.in);
-   public int bargainoffer;
+    public int bargainoffer;
 
 //   1. Intro and outro text and scans:
     public void intro(Player n1) {
@@ -36,14 +37,15 @@ public class Boundery {
                 + "or bargain with the monsters\n\n"
                 + "Your health is at 100 when you start, but as you walk around hungry\n"
                 + "and are attacked by monsters frequently, you will gradually lose your health\n\n"
+                + "You have a backpack with you with a pocket Knife and a flash light\n"
                 + "At any time during your quest, type 'help' and get some options\n"
                 + "<< This is very important  " + n1.getName() + "  so please pay attention >>\n\n"
-                + "**********************************************************\n"
                 + "Sometimes there are valuable items in the rooms and you can \n"
                 + "type 'search' to look around, and this is something you should do as soon\n"
                 + "as you enter the dungeon\n\n"
                 + "**********************************************************\n"
                 + "You have won the game when you have found the Exit of the last dungeon.\n"
+                + "and you will be richly rewarded by finding a tresure\n"
                 + "--------------------------------------------------------------------\n\n");
     }
 
@@ -71,10 +73,14 @@ public class Boundery {
     }
 
     public void youWon(Player n1) {
+        
         System.out.println("--------------------------------------------------------------------");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>FIREWORKS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         System.out.println("Congratulations    " + n1.getName() + "! You won");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>FIREWORKS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        
+        
+        
         System.out.println("--------------------------------------------------------------------");
         System.out.println("You collected " + n1.getPlayerGold() + " gold coins");
         System.out.println("--------------------------------------------------------------------");
@@ -236,7 +242,7 @@ public class Boundery {
 //          when you chose bargain
     public void notHarryPotter(Player n1) {
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("You are not Harry Potter. You do not speak parsel tongue.\n You are  " + n1.getName()+ "  be fucking proud of your self and go get that snake");
+        System.out.println("You are not Harry Potter. You do not speak parsel tongue.\n You are  " + n1.getName() + "  be fucking proud of your self and go get that snake");
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
     }
 

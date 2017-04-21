@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tag2ver4.HighScoreRelated;
+package tag2ver4;
 import java.util.*;
 import java.io.*;
-
 /**
  *
  * @author Zack
@@ -19,7 +18,7 @@ public class HighScoreManager {
         ObjectInputStream inputStream = null;
 
         public HighScoreManager() {
-            scores = new ArrayList<>();
+            scores = new ArrayList<Score>();
          }
 
         public ArrayList<Score> getScores() {
@@ -96,18 +95,18 @@ public class HighScoreManager {
             String highscoreString = "";
             int max = 10;
 
-            ArrayList<Score> scores1;
-            scores1 = getScores();
+            ArrayList<Score> scores;
+            scores = getScores();
 
             int i = 0;
-            int x = scores1.size();
+            int x = scores.size();
             if (x > max) {
                 x = max;
             }
 
             while (i < x) {
-                highscoreString += (i + 1) + ".\t" + scores1.get(i).getName() + "  "
-                        + scores1.get(i).getScore() + "\n";
+                highscoreString += (i + 1) + ".\t" + scores.get(i).getName() + "  "
+                        + scores.get(i).getScore() + "\n";
                 i++;
             }
 
@@ -115,3 +114,4 @@ public class HighScoreManager {
         }
    
 }
+

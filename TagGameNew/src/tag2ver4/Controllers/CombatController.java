@@ -62,11 +62,17 @@ public class CombatController {
                 }
 
                 if (b.actionchoice.equalsIgnoreCase("fight")) {
-                    b.checkPackback(n1);
-                    Fight(n1, e1);
+                    if (n1.getHealth() < 1) {
+                        action = false;
+                        interaction = false;
+                        return;
 
+                    } else {
+                        b.checkPackback(n1);
+                        Fight(n1, e1);
+
+                    }
                 }
-
                 if (b.actionchoice.equalsIgnoreCase("help")) {
                     b.helpMenuInfight(n1);
                 }
@@ -77,6 +83,7 @@ public class CombatController {
 
     public void Fight(Player n1, Enemy e1) {
         GameController gc = new GameController();
+        TreasureController tc = new TreasureController();
 
 //        CombatController cc = new CombatController();
         action = true;
@@ -110,18 +117,21 @@ public class CombatController {
                     action = false;
                     b.EnemyisDeath(n1);
                     n1.setPlayerGold(n1.getPlayerGold() + n1.getLocation().getEnemy().getGoldfind());
+                    n1.getLocation().getEnemy().getJewel();
+                    tc.addToTreasure(e1, n1.getLocation().getEnemy().getJewel());
+                    
                     interaction = false;
                     n1.getLocation().setEnemy(null);
                     n1.getLocation();
+                    tc.printTreasure(tc, e1);
                     b.stillInRoom(n1);
                     gc.runGame(n1);
 
                 }
-                if (n1.getHealth() <= 0) {
-                    interaction = false;
+                if (n1.getHealth() < 1) {
                     action = false;
-                    b.youAreDead();
-                    b.playAgain();
+                    interaction = false;
+                     gc.runGame(n1);
 
                 } else {
                     Interaction(n1, e1);

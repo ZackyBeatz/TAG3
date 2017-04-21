@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.util.Scanner;
 import tag2ver4.Boundery;
 import tag2ver4.Entities.Enemy;
+import tag2ver4.Entities.Jewel;
 import tag2ver4.Entities.Weapons;
 import tag2ver4.Factories.WeaponsFactory;
 import tag2ver4.Entities.Player;
 import tag2ver4.Entities.Room;
+import tag2ver4.Factories.JewelFactory;
 import tag2ver4.Factories.RoomFactory;
 import tag2ver4.Factories.RoomFactory2;
 
@@ -28,11 +30,13 @@ public class GameController {
     int gold;
     Room[][] roomMatrix = new RoomFactory().createRooms();
     Room[][] roomMatrix2 = new RoomFactory2().createRooms();
+    Jewel[] jewel = new JewelFactory().createJewels();
     Boundery b = new Boundery();
     BackpackController bpc = new BackpackController();
     Player n1 = new Player(name, 100, roomMatrix[0][0], 1, 0);
-    Enemy e1 = new Enemy(name, description, 0, 0, 0);
+    Enemy e1 = new Enemy(name, description, 0, 0, 0,jewel[0]);
     CombatController cc = new CombatController();
+    TreasureController tc = new TreasureController();
 
     public void StartGame(Player n1) {
        Weapons[] selectaweapon = new WeaponsFactory().defineWeapons();
@@ -74,7 +78,8 @@ public class GameController {
 
                 // You win the game:
                 if (n1.getRoomNr() == 9) {
-                    b.youWon(n1);
+                    tc.printTreasure(tc, e1);
+                    b.youWon(n1);                    
                     printMethod(n1);
                     loadLevel2(n1);
                 }
@@ -248,9 +253,9 @@ public class GameController {
         }
 
         if (b.nextlevel.equalsIgnoreCase("yes")) {
-            n1.setHealth(100);
-            n1.setLocation(roomMatrix2[0][0]);
-            n1.setRoomNr(4);
+            n1.setHealth(150);
+            n1.setLocation(roomMatrix2[0][3]);
+           
             System.out.println(n1.getRoomNr() + "  " + n1.getLocation());
             gamerun = true;
 

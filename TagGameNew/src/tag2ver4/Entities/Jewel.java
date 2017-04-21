@@ -1,21 +1,17 @@
-package tag2ver4.Entities;
-
-
-import tag2ver4.Entities.ItemsSuper;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package tag2ver4.Entities;
 
 /**
  *
- * @author Ticondrus
+ * @author Benedikte
  */
-public class Skattekiste extends ItemsSuper {
+public class Jewel extends ItemsSuper {
     
-    private int skatte;
+    private int goldWorth;
     String description;
     String name;
 
@@ -27,8 +23,8 @@ public class Skattekiste extends ItemsSuper {
         this.name = name;
     }
 
-    public Skattekiste(int skatte, String description, String name) {
-        this.skatte = skatte;
+    public Jewel(int goldWorth, String description, String name) {
+        this.goldWorth = goldWorth;
         this.description = description;
         this.name = name;
     }
@@ -43,20 +39,20 @@ public class Skattekiste extends ItemsSuper {
     }
     
     
-    public int getSkatekiste() {
+    public int getGoldWorth() {
         
-        return skatte;
+        return goldWorth;
     }
    
-    public void setSkatekiste(int weapons) { 
+    public void setGoldWorth(int goldWorth) { 
         
-        this.skatte = skatte;
+        this.goldWorth= goldWorth;
     }
  
   
       @Override
     public String toString() {
-        return"  " +name + "  " + skatte  +  "Skattefund:" + skatte;
+        return"  " +name + "  " +description+  "Worth:  " + goldWorth;
     }
     
     
